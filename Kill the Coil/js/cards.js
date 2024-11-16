@@ -1,34 +1,48 @@
-import { Card } from './card.js';
-
-export const allCards = {
-    basicAttack: new Card(
-        "Ataque",
+const allCards = {
+    golpe: new Card(
+        'Golpe de novato',
         1,
-        "Inflige 3 puntos de daño a un enemigo",
-        "path/to/basic-attack.png",
-        target => target.takeDamage(3)
+        'Haz 5 puntos de daño.',
+        null,
+        (target) => {
+            target.takeDamage(5);
+        }
     ),
-    heal: new Card(
-        "Curar",
+    cura: new Card(
+        'Curación básica',
         1,
-        "Restaura 5 puntos de salud al jugador",
-        "path/to/heal.png",
-        target => target.heal(5)
+        'Recupera 3 puntos de vida.',
+        null,
+        (target) => {
+        }
     ),
-    buffUp: new Card(
-        "Ataque",
+    garrote: new Card(
+        'GARROTE',
+        2,
+        'Haz 12 puntos de daño',
+        null,
+        (target) => {
+            target.takeDamage(12);
+        }
+    ),
+    mochila: new Card(
+        '¿Que hay en la mochila?',
         1,
-        "Tu próximo ataque causa 2 puntos de daño adicional",
-        "path/to/basic-attack.png",
-        target => target.takeDamage(3)
+        'Roba 2 cartas',
+        null,
+        (target) => {
+            for (let i = 0; i < 2; i++) {
+                player.drawCard(); 
+            }
+        }
     ),
-    tripleHit: new Card(
-        "Golpes Consecutivos",
-        1,
-        "Inflige 1 punto de daño 3 veces a un enemigo",
-        "path/to/basic-attack.png",
-        target => target.takeDamage(1)*3
-    ),
-    
-    // Más cartas pueden ser añadidas aquí
-};
+    comida: new Card(
+        'Carne cruda',
+        0,
+        'Recupera 2 puntos de energia',
+        null,
+        (target) => {
+            player.energy += 2;
+        }
+    )
+}
